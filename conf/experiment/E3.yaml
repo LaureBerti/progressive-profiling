@@ -1,0 +1,12 @@
+# E3: Cost-accuracy trade-off — C-E1 (>=50% speedup, <5% error)
+# Datasets: D2, D4 | Methods: dag, exhaustive | Budget sweep
+id: E3
+description: "Cost-accuracy trade-off: progressive vs exhaustive profiling"
+claim: C-E1
+datasets: [D2, D4]
+methods: [dag, exhaustive, random_uniform]
+seeds: [42, 123, 456]
+budget_fractions: [0.05, 0.1, 0.2, 0.3, 0.5, 0.7, 1.0]
+n_records: 10000000
+expected_figure: scatter_cost_vs_accuracy_pareto_frontier
+expected_verdict: "SUPPORTS: dag achieves <5% error at <=50% wall-clock time"

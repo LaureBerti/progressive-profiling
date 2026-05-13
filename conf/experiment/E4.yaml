@@ -1,0 +1,14 @@
+# E4: Error-rate sweep — C-E2 (robustness 1–30% injection rates)
+# Dataset: D1 | Methods: dag vs geometric | Error types: 4 | Rates: 5
+id: E4
+description: "Error-rate sweep: robustness across injection rates 1-30%"
+claim: C-E2
+datasets: [D1]
+methods: [dag, geometric]
+seeds: [42, 123, 456]
+budget_fraction: 0.5
+error_rates: [0.01, 0.05, 0.10, 0.20, 0.30]
+error_types: [missing, duplicate, outlier, inconsistency]
+n_records: 100000
+expected_figure: line_plots_error_vs_injection_rate_subplots_per_type
+expected_verdict: "SUPPORTS: dag stays flat; geometric degrades at >=20%"

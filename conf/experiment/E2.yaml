@@ -1,0 +1,13 @@
+# E2: Ablation — C-A2 (DAG-cognizant vs plain MCMC)
+# Datasets: D1, D3 | Methods: dag, gibbs, metropolis_hastings | Correlation levels: 3
+id: E2
+description: "Ablation: DAG vs MH vs Gibbs across correlation levels"
+claim: C-A2
+datasets: [D1, D3]
+methods: [dag, metropolis_hastings, gibbs]
+seeds: [42, 123, 456, 789, 1024]
+budget_fraction: 0.5
+correlation_levels: [0.3, 0.5, 0.7, 0.9]
+n_records: 100000
+expected_figure: line_plot_error_vs_correlation_three_curves
+expected_verdict: "SUPPORTS: dag significantly better at rho >= 0.5"

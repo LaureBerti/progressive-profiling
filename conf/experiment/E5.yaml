@@ -1,0 +1,14 @@
+# E5: Scalability — C-E5 (sub-linear cost, stable accuracy as N grows)
+# Dataset: D5 (Outsourcing pre-generated Adult-derived) | N: 10^4..5×10^6
+# N=5M uses seed=42 only (single available file)
+id: E5
+description: "Scalability: profiling cost and accuracy as N scales from 10^4 to 5×10^6 (Adult-derived)"
+claim: C-E5
+datasets: [D5]
+methods: [dag, random_uniform, exhaustive]
+seeds: [42, 123, 456]
+budget_fraction: 0.5
+scale_sizes: [10000, 100000, 500000, 1000000, 5000000]
+error_rate: 0.05
+expected_figure: dual_axis_plot_time_and_error_vs_N
+expected_verdict: "SUPPORTS: dag cost sub-linear in N; accuracy stable"

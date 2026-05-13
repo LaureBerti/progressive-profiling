@@ -1,0 +1,32 @@
+# Root Hydra config for big-data profiling experiments
+# Override any value: python run_exp_E1.py sampler.method=dag data.dataset=D1
+
+defaults:
+  - _self_
+  - experiment: E1
+
+data:
+  dataset: D1                  # D1..D5
+  n_records: 100000            # null = full dataset
+  error_rate: 0.05             # for D1/D5 synthetic injection
+  correlation_rho: 0.0         # for E2 ablation (0.3, 0.5, 0.7)
+  data_dir: data/
+
+sampler:
+  method: dag                  # dag | metropolis_hastings | gibbs | random_uniform | geometric | yamane | exhaustive
+  budget_fraction: 0.5         # fraction of dataset to sample
+  batch_size: 500
+  lam: 2.0                     # MH/DAG temperature
+
+experiment:
+  id: E1
+  seeds: [42, 123, 456]
+  description: "MCMC vs static baselines"
+
+output:
+  dir: outputs/paper_ready/
+  log_dir: logs/
+
+sdv:
+  model: GaussianCopula         # GaussianCopula | CTGAN
+  scale_sizes: [10000, 100000, 1000000, 10000000]

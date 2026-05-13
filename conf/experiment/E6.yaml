@@ -1,0 +1,19 @@
+# E6: XXL Real-Dataset Scalability — budget sweep on D8 (7M+ real rows)
+# Claim: RU converges (MRE < 5%) at b ≤ 10% on real 7M-row data;
+#        DAG is ≥ 5× slower or ≥ 2× less accurate at equal budget.
+#
+# Run one dataset at a time:
+#   python run_exp_E6.py experiment.dataset=ultra_marathon
+#   python run_exp_E6.py experiment.dataset=nyc_taxi
+id: E6
+description: "XXL real-dataset scalability: budget sweep on D8 (7M+ rows)"
+claim: C4-XXL
+dataset: ultra_marathon           # ultra_marathon | nyc_taxi
+methods: [dag, random_uniform, geometric]
+seeds: [42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526]
+budgets: [0.01, 0.02, 0.05, 0.10, 0.20]
+n_records: null                   # null = full dataset; e.g. 100000 for smoke test
+error_rate: 0.0                   # real data — no synthetic injection
+run_exhaustive_gt: true           # one exhaustive GT pass per dataset
+expected_figure: fig_E6_mre_vs_budget
+expected_verdict: "SUPPORTS: RU MRE < 5% at b=10%; DAG >= 5x slower"

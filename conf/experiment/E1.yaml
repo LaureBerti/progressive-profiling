@@ -1,0 +1,13 @@
+# E1: Main comparison — C-A1 (MCMC-guided vs static baselines)
+# Datasets: D1..D4 | Methods: dag, random_uniform, geometric, yamane | Seeds: 3
+id: E1
+description: "Main comparison: MCMC-guided vs static sampling strategies"
+claim: C-A1
+datasets: [D1, D2, D3, D4]
+methods: [dag, metropolis_hastings, random_uniform, geometric, yamane]
+seeds: [42, 123, 456]
+budget_fractions: [0.05, 0.1, 0.2, 0.3, 0.5]
+error_rate: 0.05
+n_records_D1: 100000
+expected_figure: grouped_bar_relative_error_per_method_per_dataset
+expected_verdict: "SUPPORTS: dag < all baselines, p < 0.05 Wilcoxon"
