@@ -175,14 +175,19 @@ data/                     Preprocessed datasets (not included in this repo)
 
 ## Citation
 
-If you use this benchmark or code, please cite:
+This paper has been **accepted** in *Transactions on Large-Scale Data- and
+Knowledge-Centered Systems (TLDKS)*, Springer (2026). The volume/page numbers and
+DOI will be added here once assigned. If you use this benchmark or code, please cite:
 
 ```bibtex
 @article{bertie2026profiling,
-  author    = {Laure Berti-Equille},
+  author    = {Laure Berti-{\'E}quille},
   title     = {Data Quality Profiling at Scale with Progressive Sampling:
                A Benchmark for Data-Centric {AI} Pipelines},
-  note      = {Under submission},
+  journal   = {Transactions on Large-Scale Data- and Knowledge-Centered
+               Systems (TLDKS)},
+  publisher = {Springer},
+  note      = {Accepted; in press},
   year      = {2026}
 }
 ```
